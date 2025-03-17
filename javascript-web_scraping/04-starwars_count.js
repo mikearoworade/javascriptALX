@@ -24,14 +24,12 @@ request(apiUrl, (error, response, body) => {
     const data = JSON.parse(body); // Parse the JSON response
     // console.log(data);
     const movies = data.results; // Extract the list of movies
-    console.log(movies.length);
+    // console.log(movies);
 
+    // Filter movies where Wedge Antilles (ID 18) appears
+    const count = movies.filter(movie =>
+        movie.characters.includes('https://swapi-api.alx-tools.com/api/people/18/')).length;
 
-
-    // // Filter movies where Wedge Antilles (ID 18) appears
-    // const count = movies.filter(movie =>
-    //     movie.characters.includes('https://swapi-api.alx-tools.com/api/people/18')).length;
-    //
-    // console.log(count);
+    console.log(count);
 
 })
